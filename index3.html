@@ -11,21 +11,21 @@
 
 <body>
     <div><a href="javascript:void" onclick="sendRequest()">Send Request</a></div>
-    <div id="box"></div>
+    <div id="placeHolderDiv"></div>
 
     <!--<script>-->
     <!--$.ajax({-->
     <!--url: "/all",-->
     <!--type: "GET",-->
     <!--success: function(res){-->
-    <!--$$("#box").html(JSON.stringify(res));-->
+    <!--$$("#placeHolderDiv").html(JSON.stringify(res));-->
     <!--}-->
     <!--})-->
     <!--</script>-->
     <script>
         function sendRequest() {
             $.getJSON("http://localhost:8080/all", function (res) {
-                $("#box").html(JSON.stringify(res));
+                $("#placeHolderDiv").html(JSON.stringify(res));
             }
             )
         }
