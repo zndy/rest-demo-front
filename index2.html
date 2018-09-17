@@ -5,7 +5,7 @@
   <title>Server Memory Monitor</title>
   <script>
     function initialize() {
-      const eventSource = new EventSource('memory');
+      const eventSource = new EventSource('http://localhost:8080/memory');
 
       eventSource.onmessage = e => {
         const msg = JSON.parse(e.data);

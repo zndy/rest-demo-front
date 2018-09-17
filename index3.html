@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src='js/nprogress.js'></script>
+    <link rel='stylesheet' href='css/nprogress.css' />
 </head>
 
 <body>
-
+    <div><a href="javascript:void" onclick="sendRequest()">Send Request</a></div>
     <div id="box"></div>
 
     <!--<script>-->
@@ -21,10 +23,19 @@
     <!--})-->
     <!--</script>-->
     <script>
-        $.getJSON("http://localhost:8080/all", function (res) {
-            $("#box").html(JSON.stringify(res));
+        function sendRequest() {
+            $.getJSON("http://localhost:8080/all", function (res) {
+                $("#box").html(JSON.stringify(res));
+            }
+            )
         }
-        )
+
+        $(window).ajaxStart(function () {
+            NProgress.start();
+        });
+        $(window).ajaxStop(function () {
+            NProgress.done();
+        });
     </script>
 </body>
 

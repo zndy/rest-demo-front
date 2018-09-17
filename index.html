@@ -9,14 +9,14 @@
     <div><a href="javascript:void" onclick="addUser1()">Send addUser1</a></div>
     <div><a href="javascript:void" onclick="addUser2()">Send addUser2</a></div>
     <div><a href="javascript:void" onclick="postUser()">post User</a></div>
-    <div id="sseDiv"></div>
+    <div id="placeHolderDiv"></div>
 
     <script>
 
         function sendRequest() {
             var source = new EventSource("http://localhost:8080/sse");
             source.onmessage = function (event) {
-                document.getElementById("sseDiv").innerHTML += event.data + " - ";
+                document.getElementById("placeHolderDiv").innerHTML += event.data + " - ";
             };
         }
 
@@ -24,7 +24,7 @@
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("sseDiv").innerHTML +=
+                    document.getElementById("placeHolderDiv").innerHTML +=
                         this.responseText;
                 }
             };
@@ -36,7 +36,7 @@
             var xhr = new XMLHttpRequest()
             xhr.addEventListener("readystatechange", function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("sseDiv").innerHTML +=
+                    document.getElementById("placeHolderDiv").innerHTML +=
                         this.responseText;
                 }
             })
@@ -47,7 +47,7 @@
         function addUser2() {
             var xhr = new XMLHttpRequest()
             xhr.addEventListener("load", function () {
-                document.getElementById("sseDiv").innerHTML +=
+                document.getElementById("placeHolderDiv").innerHTML +=
                     this.responseText;
             })
             xhr.open("GET", "http://localhost:8080/who/2", true)
@@ -57,7 +57,7 @@
         function postUser() {
             var xhr = new XMLHttpRequest()
             xhr.addEventListener("load", function () {
-                document.getElementById("sseDiv").innerHTML +=
+                document.getElementById("placeHolderDiv").innerHTML +=
                     this.responseText;
             })
             xhr.open("POST", "http://localhost:8080/create", true)
