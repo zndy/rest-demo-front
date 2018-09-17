@@ -13,7 +13,7 @@
 <script>
 
     function sendRequest(){
-        var source = new EventSource("/sse");
+        var source = new EventSource("http://localhost:8080/sse");
         source.onmessage = function(event) {
             document.getElementById("sseDiv").innerHTML += event.data + " - ";
         };
@@ -39,7 +39,7 @@
             this.responseText;
          }
         })
-      xhr.open("GET", "/who/1", true)
+      xhr.open("GET", "http://localhost:8080/who/1", true)
       xhr.send(null)
     }
 
@@ -49,7 +49,7 @@
             document.getElementById("sseDiv").innerHTML +=
             this.responseText;
         })
-      xhr.open("GET", "/who/2", true)
+      xhr.open("GET", "http://localhost:8080/who/2", true)
       xhr.send(null)
     }
 
@@ -59,7 +59,7 @@
             document.getElementById("sseDiv").innerHTML +=
             this.responseText;
         })
-      xhr.open("POST", "/create", true)
+      xhr.open("POST", "http://localhost:8080/create", true)
       xhr.setRequestHeader("Content-Type","application/json;charset=utf-8")
       xhr.send(JSON.stringify({id:"100",name:"XXXX", age:"11"}))
     }
