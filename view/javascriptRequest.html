@@ -4,7 +4,7 @@
 <body>
 
     <h1>Sse client</h1>
-    <div><a href="javascript:void" onclick="sendRequest()">Send Request</a></div>
+    <div><a href="javascript:void" onclick="sse()">Send Request</a></div>
     <div><a href="javascript:void" onclick="addUser()">Send addUser</a></div>
     <div><a href="javascript:void" onclick="addUser1()">Send addUser1</a></div>
     <div><a href="javascript:void" onclick="addUser2()">Send addUser2</a></div>
@@ -13,7 +13,7 @@
 
     <script>
 
-        function sendRequest() {
+        function sse() {
             var source = new EventSource("http://localhost:8080/sse");
             source.onmessage = function (event) {
                 document.getElementById("placeHolderDiv").innerHTML += event.data + " - ";
