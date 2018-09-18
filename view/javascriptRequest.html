@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='../css/bootstrap.min.css'/>
+</head>
 
 <body>
-
     <h1>Sse client</h1>
-    <div><a href="javascript:void" onclick="sse()">Send Request</a></div>
-    <div><a href="javascript:void" onclick="addUser()">Send addUser</a></div>
-    <div><a href="javascript:void" onclick="addUser1()">Send addUser1</a></div>
-    <div><a href="javascript:void" onclick="addUser2()">Send addUser2</a></div>
+    <div><a href="javascript:void" onclick="sse()">sseRequest</a></div>
+    <div><button type="button" class="btn btn-primary" onclick="addAllUser()">addAllUser</button></div>
+    <div><a href="javascript:void" onclick="addUser1()">addUser1</a></div>
+    <div><a href="javascript:void" onclick="addUser2()">addUser2</a></div>
     <div><a href="javascript:void" onclick="postUser()">post User</a></div>
     <div id="placeHolderDiv"></div>
 
@@ -20,7 +29,7 @@
             };
         }
 
-        function addUser() {
+        function addAllUser() {
             var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -66,7 +75,6 @@
         }
 
     </script>
-
 </body>
 
 </html>
